@@ -1,0 +1,200 @@
+/* Reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc, #cfd9df, #f5f7fa);
+  background-size: 300% 300%;
+  animation: bgShift 20s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #444;
+  padding-top: 70px; /* space for top bar */
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Top Bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.bar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.bar-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Main wrapper */
+.wrapper {
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  padding: 30px;
+  text-align: center;
+  color: #333;
+  animation: popIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #555;
+}
+
+form {
+  margin-top: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+input[type="text"] {
+  width: 90%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #a88beb;
+  box-shadow: 0 0 5px rgba(168,139,235,0.3);
+}
+
+button {
+  background: linear-gradient(45deg, #a88beb, #f8ceec);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  margin-top: 5px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.4);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+button:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+button.another {
+  background: linear-gradient(45deg, #f6d365, #fda085);
+}
+
+button.another:hover {
+  transform: translateY(-2px);
+}
+
+.affirmation {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f7f7f7;
+  border-left: 4px solid #a88beb;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: #444;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.affirmation p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 480px) {
+  .card {
+    padding: 20px 15px;
+  }
+  .card h1 {
+    font-size: 1.5rem;
+  }
+}
